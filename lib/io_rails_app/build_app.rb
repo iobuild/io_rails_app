@@ -73,5 +73,18 @@ class BuildApp
   end
 
 
+  def install_devise
+    new_line(2)
+    wputs "----> Installing devise  ...", :info
+    Dir.chdir "#{ConfigValues.app_name}" do
+      system "rails generate devise:install"
+      system "rails generate devise User"
+      system "rake db:migrate"
+    end
+    new_line
+    wputs "----> devise installed.", :info
+  end
+
+
 
 end

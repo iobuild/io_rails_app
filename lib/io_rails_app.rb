@@ -25,6 +25,8 @@ module IoRailsApp
     build_app.create_app
 
     build_app.bundle_install
+
+    build_app.install_devise
     
   end
 
