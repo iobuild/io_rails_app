@@ -1,31 +1,18 @@
 # IoRailsApp
 
-TODO: Write a gem description
+When you have an idea, you want to translate it quickly into a working app rather than spending hours on basic setup tasks such as user signin/signup, layout style, default home page. IoRailsApp lets you concentrate on what makes your idea unique and valuable: its features.
 
-## Installation
-
-Add this line to your application's Gemfile:
-
-```ruby
-gem 'io_rails_app'
-```
-
-And then execute:
-
-    $ bundle
-
-Or install it yourself as:
-
-    $ gem install io_rails_app
 
 ## Usage
 
-TODO: Write usage instructions here
+To create a new app, just type `rails_c your_app_name` and follow the wizard.
 
-## Contributing
+    
+## Contribute
 
-1. Fork it ( https://github.com/[my-github-username]/io_rails_app/fork )
-2. Create your feature branch (`git checkout -b my-new-feature`)
-3. Commit your changes (`git commit -am 'Add some feature'`)
-4. Push to the branch (`git push origin my-new-feature`)
-5. Create a new Pull Request
+* Arly Xiao ([@arlyxiao](https://github.com/arlyxiao))
+* [List of all contributors](https://github.com/iobuild/io_rails_app/contributors)
+
+## License
+
+Released under GNU GPL-3. Copyright (c) 2014 - iobuild. See LICENSE.txt for further details.
