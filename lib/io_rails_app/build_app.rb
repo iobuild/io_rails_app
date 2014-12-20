@@ -1,6 +1,7 @@
 require_relative "ui_helpers"
 require_relative "string_helpers"
 require_relative "config_values"
+require_relative "file_helpers"
 
 
 
@@ -47,6 +48,11 @@ class BuildApp
     Errors.display_error("Something went wrong and Rails ConfigValues.rails_version", true)
     abort
 
+  end
+
+
+  def create_app
+    system "rails new #{ConfigValues.app_name} --skip-bundle"
   end
 
 
