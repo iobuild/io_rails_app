@@ -26,6 +26,10 @@ module IoRailsApp
 
     build_app.bundle_install
 
+    build_app.install_layout
+
+    build_app.install_home
+
     build_app.install_devise
     
   end

@@ -10,6 +10,11 @@ class BuildApp
 
   include AppHelpers::InstanceMethods
 
+  def initialize()
+    @app_dir = Dir.pwd + "/#{ConfigValues.app_name}"
+    @root_dir = File.dirname(__FILE__)
+  end
+
   def update_basic
 
     wputs "- Do you need update the basic?"
@@ -48,7 +53,7 @@ class BuildApp
     wputs "----> Rails ConfigValues.rails_version installed.", :info
 
   rescue
-    Errors.display_error("Something went wrong and Rails ConfigValues.rails_version", true)
+    Errors.display_error("Something wrong with Rails ConfigValues.rails_version", true)
     abort
 
   end
@@ -63,6 +68,14 @@ class BuildApp
 
 
   def bundle_install
+    wputs "- Do you need run bundle install?"
+    wputs "1. No, not now (default)", :info
+    wputs "2. Do it! ", :info
+
+
+    return if answer() != '2'
+
+
     new_line(2)
     wputs "----> Installing gems  ...", :info
     Dir.chdir "#{ConfigValues.app_name}" do
@@ -70,6 +83,61 @@ class BuildApp
     end
     new_line
     wputs "----> Gems installed.", :info
+  end
+
+
+  def install_home
+    new_line(2)
+    wputs "----> Installing home  ...", :info
+
+    source_file = "#{@root_dir}/base/app/controllers/home_controller.rb"
+    target_dir = "#{@app_dir}/app/controllers"
+    FileHelpers.copy_file(source_file, target_dir)
+
+
+    source_file = "#{@root_dir}/base/app/views/home"
+    target_dir = "#{@app_dir}/app/views"
+    Dir.mkdir(File.join(target_dir, "home"), 0700)
+    target_dir = "#{@app_dir}/app/views/home"
+    FileHelpers.copy_dir(source_file, target_dir)
+
+
+    source_file = "#{@root_dir}/base/config/routes.rb"
+    target_dir = "#{@app_dir}/config/routes.rb"
+    FileHelpers.override_file(source_file, target_dir)
+
+    new_line
+    wputs "----> home installed.", :info
+  end
+
+
+  def install_layout
+    new_line(2)
+    wputs "----> Installing layout  ...", :info
+
+    source_file = "#{@root_dir}/base/app/views/layouts/default.html.erb"
+    target_dir = "#{@app_dir}/app/views/layouts"
+    FileHelpers.copy_file(source_file, target_dir)
+
+
+    source_file = "#{@root_dir}/base/app/assets/stylesheets"
+    target_dir = "#{@app_dir}/app/assets/stylesheets"
+    FileHelpers.copy_dir(source_file, target_dir)
+    FileUtils.rm(target_dir + "/application.css")
+
+
+    source_file = "#{@root_dir}/base/app/controllers/application_controller.rb"
+    target_dir = "#{@app_dir}/app/controllers/application_controller.rb"
+    FileHelpers.override_file(source_file, target_dir)
+
+
+    source_file = "#{@root_dir}/base/config/locales"
+    target_dir = "#{@app_dir}/config/locales"
+    FileHelpers.copy_dir(source_file, target_dir)
+
+
+    new_line
+    wputs "----> layout installed.", :info
   end
 
 

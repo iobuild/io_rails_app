@@ -1,0 +1,431 @@
+zh-CN:
+  save: '保存'
+  login: '登录'
+  register: '注册'
+  logout: '注销'
+
+
+  date:
+    abbr_day_names:
+    - 日
+    - 一
+    - 二
+    - 三
+    - 四
+    - 五
+    - 六
+    abbr_month_names:
+    -
+    - 1月
+    - 2月
+    - 3月
+    - 4月
+    - 5月
+    - 6月
+    - 7月
+    - 8月
+    - 9月
+    - 10月
+    - 11月
+    - 12月
+    day_names:
+    - 星期日
+    - 星期一
+    - 星期二
+    - 星期三
+    - 星期四
+    - 星期五
+    - 星期六
+    formats:
+      default: ! '%Y-%m-%d'
+      long: ! '%Y年%b%d日'
+      short: ! '%b%d日'
+    month_names:
+    -
+    - 一月
+    - 二月
+    - 三月
+    - 四月
+    - 五月
+    - 六月
+    - 七月
+    - 八月
+    - 九月
+    - 十月
+    - 十一月
+    - 十二月
+    order:
+    - :year
+    - :month
+    - :day
+  datetime:
+    distance_in_words:
+      about_x_hours:
+        one: 1 小时
+        other: '%{count} 小时'
+      about_x_months:
+        one: 1 个月
+        other: '%{count} 个月'
+      about_x_years:
+        one: 1 年
+        other: '%{count} 年'
+      almost_x_years:
+        one: 1 年
+        other: '%{count} 年'
+      half_a_minute: 半分钟
+      less_than_x_minutes:
+        one: 1 分钟
+        other:  '%{count} 分钟'
+      less_than_x_seconds:
+        one: 1 秒
+        other:  '%{count} 秒'
+      over_x_years:
+        one: 1 年多
+        other: '%{count} 年多'
+      x_days:
+        one: 1 天
+        other: '%{count} 天'
+      x_minutes:
+        one: 1 分钟
+        other: '%{count} 分钟'
+      x_months:
+        one: 1 个月
+        other: '%{count} 个月'
+      x_seconds:
+        one: 1 秒
+        other: '%{count} 秒'
+    prompts:
+      day: 日
+      hour: 时
+      minute: 分
+      month: 月
+      second: 秒
+      year: 年
+  errors: &errors
+    format: ! '%{attribute}%{message}'
+    messages:
+      accepted: 必须是可被接受的
+      blank: 不能为空字符
+      present: 必须是空白
+      confirmation: 与确认值不匹配
+      empty: 不能留空
+      equal_to: 必须等于 %{count}
+      even: 必须为双数
+      exclusion: 是保留关键字
+      greater_than: 必须大于 %{count}
+      greater_than_or_equal_to: 必须大于或等于 %{count}
+      inclusion: 不包含于列表中
+      invalid: 是无效的
+      less_than: 必须小于 %{count}
+      less_than_or_equal_to: 必须小于或等于 %{count}
+      not_a_number: 不是数字
+      not_an_integer: 必须是整数
+      odd: 必须为单数
+      record_invalid: ! '验证失败: %{errors}'
+      restrict_dependent_destroy: 
+        one: 由于 %{record} 需要此记录，所以无法移除记录
+        many: 由于 %{record} 需要此记录，所以无法移除记录
+      taken: 已经被使用
+      too_long: 
+        one: 过长（最长为一个字符）
+        other: 过长（最长为 %{count} 个字符）
+      too_short: 
+        one: 过短（最短为一个字符）
+        other: 过短（最短为 %{count} 个字符）
+      wrong_length: 
+        one: 长度非法（必须为一个字符）
+        other: 长度非法（必须为 %{count} 个字符）
+      other_than: 长度非法（不可为 %{count} 个字符
+
+      carrierwave_processing_error: "不能重新调整文件尺寸"
+      carrierwave_integrity_error: "不是一张图"
+      carrierwave_download_error: "不能下载文件"
+      extension_white_list_error: "不能上传%{extension}类的文件, 允许的类型: %{allowed_types}"
+      extension_black_list_error: "不能上传%{extension}类的文件, 不允许的类型: %{prohibited_types}"
+      wrong_size: "错误的文件大小 (应该为 %{file_size})"
+      size_too_small: "文件太小了 (应该至少 %{file_size})"
+      size_too_big: "文件太大了 (不能超过 %{file_size})"
+
+    template:
+      body: 如下字段出现错误：
+      header:
+        one: 有 1 个错误发生导致「%{model}」无法被保存。
+        other: 有 %{count} 个错误发生导致「%{model}」无法被保存。
+  
+  helpers:
+    select:
+      prompt: 请选择
+    submit:
+      create: 新增%{model}
+      submit: 储存%{model}
+      update: 更新%{model}
+    page_entries_info:
+      one_page:
+        display_entries:
+          zero: "没找到 %{entry_name}"
+          one: "显示 <b>1个</b> %{entry_name}"
+          other: "显示 <b>所有 %{count}</b> %{entry_name}"
+      more_pages:
+        display_entries: "显示 %{entry_name} <b>%{first}&nbsp;-&nbsp;%{last}</b> 中的 <b>%{total}</b> 一共"
+
+  number:
+    currency:
+      format:
+        delimiter: ! ','
+        format: ! '%u %n'
+        precision: 2
+        separator: .
+        significant: false
+        strip_insignificant_zeros: false
+        unit: CN¥
+    format:
+      delimiter: ! ','
+      precision: 3
+      separator: .
+      significant: false
+      strip_insignificant_zeros: false
+    human:
+      decimal_units:
+        format: ! '%n %u'
+        units:
+          billion: 十亿
+          million: 百万
+          quadrillion: 千兆
+          thousand: 千
+          trillion: 兆
+          unit: ''
+      format:
+        delimiter: ''
+        precision: 1
+        significant: false
+        strip_insignificant_zeros: false
+      storage_units:
+        format: ! '%n %u'
+        units:
+          byte:
+            one: Byte
+            other: Bytes
+          gb: GB
+          kb: KB
+          mb: MB
+          tb: TB
+    percentage:
+      format:
+        delimiter: ''
+    precision:
+      format:
+        delimiter: ''
+  support:
+    array:
+      last_word_connector: ! ', 和 '
+      two_words_connector: ! ' 和 '
+      words_connector: ! ', '
+  time:
+    am: 上午
+    formats:
+      default: ! '%Y年%b%d日 %A %H:%M:%S %Z'
+      long: ! '%b%d日 %H:%M'
+      short: ! '%b%d日 %H:%M'
+    pm: 下午
+
+  formtastic:
+    :yes: '是'
+    :no: '否'
+    :create: '创建%{model}'
+    :update: '更新%{model}'
+    :submit: '提交%{model}'
+    :cancel: '取消%{model}'
+    :reset: '取消%{model}'
+    :required: '必需的'
+  activemodel:
+    errors:
+      <<: *errors
+  activerecord:
+    errors:
+      <<: *errors
+    models:
+      message: 通知
+      user: 用户
+      admin_user: 管理员
+      category: 分类
+      code: 代码
+      language: 语言
+      point: 节点
+      post: 文章
+      reply: 评论
+    attributes:
+      admin_user:
+        id: ID
+        created_at: 创建时间
+        updated_at: 更新时间
+        email: Email
+        encrypted_password: 加密后的密码
+        reset_password_token: 重置密码Token
+        reset_password_sent_at: 重置密码时间
+        remember_created_at: 上次免登录于
+        sign_in_count: 登录次数
+        current_sign_in_at: 本次登录时间
+        last_sign_in_at: 上次登录时间
+        current_sign_in_ip: 当前登录IP
+        last_sign_in_ip: 上次登录IP
+        failed_attempts: 登录失败次数
+        unlock_token: 解锁码
+        locked_at: 被锁时间
+      user:
+        id: ID
+        created_at: 创建时间
+        updated_at: 更新时间
+        uid: 用户编号
+        name: 真实姓名
+        ranking: 排名
+        visits: 访问数
+        email: Email
+        city_name: 城市名
+        homepage: 个人主页
+        github: Github主页
+        company: 公司名
+        signature: 个人签名
+        avatar: 个人头像
+        description: 详细资料
+        is_email_public: 公开邮箱
+        encrypted_password: 加密后的密码
+        reset_password_token: 重置密码Token
+        reset_password_sent_at: 重置密码时间
+        remember_created_at: 上次免登录时间
+        sign_in_count: 登录次数
+        current_sign_in_at: 本次登录时间
+        last_sign_in_at: 上次登录时间
+        current_sign_in_ip: 当前登录IP
+        last_sign_in_ip: 上次登录IP
+        failed_attempts: 登录失败次数
+        unlock_token: 解锁码
+        locked_at: 被锁时间
+        messages: 消息
+        posts: 文章
+        codes: 代码
+        replies: 评论
+        categories: 分类
+      code:
+        id: ID
+        created_at: 创建时间
+        updated_at: 更新时间
+        title:  标题
+        tags: 标签
+        content: 内容
+        source: 来源
+        user: 用户
+        language: 语言
+        category: 分类
+        user_id: 用户
+        language_id: 语言
+        category_id: 分类
+      category:
+        id: ID
+        created_at: 创建时间
+        updated_at: 更新时间
+        name: 名称
+        description: 描述
+        user: 用户
+        user_id: 用户
+        posts: 文章
+        codes: 代码
+      post:
+        id: ID
+        created_at: 创建时间
+        updated_at: 更新时间
+        title: 标题
+        content: 内容
+        tags: 标签
+        source: 来源
+        status: 状态
+        visits: 访问数
+        likes: 点赞数
+        user: 用户
+        point: 节点
+        category: 分类
+        replies: 评论
+        user_id: 用户
+        point_id: 节点
+        category_id: 分类
+      point:
+        id: ID
+        created_at: 创建时间
+        updated_at: 更新时间
+        name: 名称
+        code: 程序码
+        description: 描述
+        posts: 文章
+      reply:
+        id: ID
+        created_at: 创建时间
+        updated_at: 更新时间
+        content: 内容
+        is_public: 是否公开
+        deleted_at: 隐藏时间
+        last_reply_id: 回复的ID
+        user: 评论人
+        post: 文章
+        blogger: 博主
+        messages: 消息
+        user_id: 评论人
+        post_id: 文章
+      language:
+        id: ID
+        created_at: 创建时间
+        updated_at: 更新时间
+        name: 名称
+        code: 程序码
+        description: 描述
+        user_codes: 代码
+      message:
+        id: ID
+        created_at: 创建时间
+        updated_at: 更新时间
+        code: 程序码
+        body: 消息内容
+        target_id: 目标ID
+        target_type: 目标类型
+        is_read: 已读
+        user: 接收人
+        sender: 发送人
+        user_id: 接收人
+        from_user_id: 发送人
+
+  views:
+    pagination:
+      first: "&laquo; 首页"
+      last: "末页 &raquo;"
+      previous: "&lsaquo; 上一页"
+      next: "下一页 &rsaquo;"
+      truncate: "&hellip;"
+
+  active_admin:
+    dashboard: 控制台
+    devise:
+      password_confirmation:
+        title: 确认密码
+      change_password:
+        submit: 确 认
+      links:
+        sign_up: 注 册
+        resend_unlock_instructions: 重发解锁邮件
+      sign_up:
+        title: 注 册
+        submit: 提 交
+
+  simple_captcha:
+    placeholder: 输入图片上的字符
+    label: 输入文本框中的字符
+    message:
+      default: 输入的字符不匹配
+      user: 验证码不正确
+
+  ckeditor:
+    page_title: CKEditor文件管理器
+    confirm_delete: 删除文件？
+    buttons:
+      cancel: 取消
+      upload: 上传
+      delete: 删除
+      next: 下一个
+

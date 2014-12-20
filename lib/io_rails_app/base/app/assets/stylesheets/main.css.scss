@@ -1,0 +1,172 @@
+* {
+  margin: 0;
+  padding: 0;
+}
+
+.avatar {
+/*The following will work in almost all browsers*/
+max-height:200px;
+max-width:150px;
+}
+/*Now becuse we know IE6 is a pain in the backside it needs it own slice of code */
+ 
+* html .avatar {
+height: 200px;
+width: 150px
+}
+
+
+.fa {
+  color: #000;
+}
+
+img { 
+  max-width: 100%; 
+  height: auto;
+}
+
+.cn, .hide {
+  display: none;
+}
+
+
+body {
+  background: url("/assets/bg.png") repeat scroll 0 0;
+  padding-top: 100px;
+  font-size: 14px;
+}
+
+
+footer {
+    margin: 50px 0;
+}
+
+
+.navbar-inverse .navbar-nav > li > a {
+  color: #ffffff;
+}
+
+
+
+.list-group-item a {
+  color : #333;
+  text-decoration : none;
+}
+
+.list-group-item .col-md-2 a,  .list-group-item .col-md-3 a{
+  color: #fff;
+}
+ 
+
+
+
+
+dl.topics dd, dl.replies dd, dl#nodes dd {
+    border-bottom: 1px dashed #ccc;
+    margin-left: 0;
+    padding-bottom: 10px;
+    padding-top: 10px;
+}
+
+
+.reply-content, .info {
+    padding-left: 60px;
+}
+
+.thumb-size {
+  width: 48px;
+  height: 48px;
+}
+
+
+.space {
+    height: 4px;
+}
+
+.width-input {
+  width: 220px;
+}
+
+.pl-60 {
+    padding-left: 60px;
+}
+
+
+.mr-10 {
+  margin-right: 10px;
+}
+
+.mb-20 {
+  margin-bottom: 20px;
+}
+
+.mt-20 {
+  margin-top: 20px;
+}
+
+.h-top {
+  height: 80px;
+}
+
+.controls span {
+  margin-left: 5px;
+  color: red;
+}
+
+
+
+.panel-heading a {
+  color: black;
+}
+
+.collected i {
+  color: green;
+}
+
+.field {
+  margin-bottom: 20px;
+}
+
+
+
+
+
+
+
+
+.form-signin {
+  max-width: 330px;
+  padding: 15px;
+  margin: 0 auto;
+}
+.form-signin .form-signin-heading,
+.form-signin .checkbox {
+  margin-bottom: 10px;
+}
+.form-signin .checkbox {
+  font-weight: normal;
+}
+.form-signin .form-control {
+  position: relative;
+  height: auto;
+  -webkit-box-sizing: border-box;
+     -moz-box-sizing: border-box;
+          box-sizing: border-box;
+  padding: 10px;
+  font-size: 16px;
+}
+.form-signin .form-control:focus {
+  z-index: 2;
+}
+.form-signin input[type="email"] {
+  margin-bottom: -1px;
+  border-bottom-right-radius: 0;
+  border-bottom-left-radius: 0;
+}
+.form-signin input[type="password"] {
+  margin-bottom: 10px;
+  border-top-left-radius: 0;
+  border-top-right-radius: 0;
+}
+
+

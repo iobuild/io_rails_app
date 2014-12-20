@@ -15,6 +15,25 @@ module FileHelpers
 
   end
 
+  def self.copy_file(source_file, target_dir)
+    FileUtils.cp(source_file,target_dir)
+
+  rescue
+    p "Couldn't copy to #{target_dir}. Aborting app creation.", true
+    abort
+  end
+
+
+  def self.copy_dir(source_dir, target_dir)
+    FileUtils.copy_entry source_dir, target_dir
+
+  rescue
+    p "Couldn't copy to #{target_dir}. Aborting app creation.", true
+    abort
+  end
+
+  
+
   def self.override_file(source_file, target_file)
     FileUtils.rm(target_file)
     FileUtils.cp(source_file,target_file)
