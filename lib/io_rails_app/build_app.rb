@@ -2,10 +2,13 @@ require_relative "ui_helpers"
 require_relative "string_helpers"
 require_relative "config_values"
 require_relative "file_helpers"
+require_relative "app_helpers"
 
 
 
 class BuildApp
+
+  include AppHelpers::InstanceMethods
 
   def update_basic
 
@@ -50,28 +53,14 @@ class BuildApp
 
   end
 
+  
 
   def create_app
     system "rails new #{ConfigValues.app_name} --skip-bundle"
+
+    define_gemfile
   end
 
 
-  def wputs(text, highlight = :none)
-    StringHelpers.wputs(text, highlight)
-  end
-
-
-  def new_line(lines=1)
-    StringHelpers.new_line(lines)
-  end
-
-  def answer(choices="Your choice (1-2):", is_downcase = true)
-    print "#{choices} "
-    if is_downcase
-      STDIN.gets.chomp.downcase.strip
-    else
-      STDIN.gets.chomp.strip
-    end
-  end
 
 end
