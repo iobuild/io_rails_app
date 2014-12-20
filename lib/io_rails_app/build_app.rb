@@ -97,8 +97,8 @@ class BuildApp
 
     source_file = "#{@root_dir}/base/app/views/home"
     target_dir = "#{@app_dir}/app/views"
-    Dir.mkdir(File.join(target_dir, "home"), 0700)
-    target_dir = "#{@app_dir}/app/views/home"
+    # Dir.mkdir(File.join(target_dir, "home"), 0700)
+    target_dir = "#{@app_dir}/app/views"
     FileHelpers.copy_dir(source_file, target_dir)
 
 
@@ -121,9 +121,9 @@ class BuildApp
 
 
     source_file = "#{@root_dir}/base/app/assets/stylesheets"
-    target_dir = "#{@app_dir}/app/assets/stylesheets"
+    target_dir = "#{@app_dir}/app/assets"
     FileHelpers.copy_dir(source_file, target_dir)
-    FileUtils.rm(target_dir + "/application.css")
+    FileUtils.rm(target_dir + "/stylesheets/application.css")
 
 
     source_file = "#{@root_dir}/base/app/controllers/application_controller.rb"
@@ -132,7 +132,7 @@ class BuildApp
 
 
     source_file = "#{@root_dir}/base/config/locales"
-    target_dir = "#{@app_dir}/config/locales"
+    target_dir = "#{@app_dir}/config"
     FileHelpers.copy_dir(source_file, target_dir)
 
 
@@ -149,6 +149,13 @@ class BuildApp
       system "rails generate devise User"
       system "rake db:migrate"
     end
+
+    source_file = "#{@root_dir}/base/app/views/devise"
+    target_dir = "#{@app_dir}/app/views"
+    Dir.mkdir(File.join(target_dir, "devise"), 0700)
+    target_dir = "#{@app_dir}/app/views"
+    FileHelpers.copy_dir(source_file, target_dir)
+
     new_line
     wputs "----> devise installed.", :info
   end

@@ -36,6 +36,8 @@ module AppHelpers
 gem "kaminari"
 gem 'devise'
 
+gem 'simple_form'
+
 gem 'bootstrap-sass'
 gem 'autoprefixer-rails'
 gem 'font-awesome-sass'
@@ -54,7 +56,7 @@ end
 
       FileHelpers.add_to_file(origin_file, basic_gem)
     end
-    
+
 
   end
 end

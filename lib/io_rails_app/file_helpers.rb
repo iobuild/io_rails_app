@@ -25,9 +25,10 @@ module FileHelpers
 
 
   def self.copy_dir(source_dir, target_dir)
-    FileUtils.copy_entry source_dir, target_dir
+    FileUtils.cp_r source_dir, target_dir
 
   rescue
+    p source_dir
     p "Couldn't copy to #{target_dir}. Aborting app creation.", true
     abort
   end
