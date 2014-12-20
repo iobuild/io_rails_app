@@ -53,12 +53,23 @@ class BuildApp
 
   end
 
-  
+
 
   def create_app
     system "rails new #{ConfigValues.app_name} --skip-bundle"
 
     define_gemfile
+  end
+
+
+  def bundle_install
+    new_line(2)
+    wputs "----> Installing gems  ...", :info
+    Dir.chdir "#{ConfigValues.app_name}" do
+      system "bundle install"
+    end
+    new_line
+    wputs "----> Gems installed.", :info
   end
 
 
