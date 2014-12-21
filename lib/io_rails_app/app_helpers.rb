@@ -161,5 +161,17 @@ end
     end
 
 
+    def add_user_page
+      source_file = "#{@root_dir}/base/app/views/users"
+      target_dir = "#{@app_dir}/app/views"
+      FileHelpers.copy_dir(source_file, target_dir)
+
+
+      source_file = "#{@root_dir}/base/app/controllers/users_controller.rb"
+      target_dir = "#{@app_dir}/app/controllers"
+      FileHelpers.copy_file(source_file, target_dir)
+    end
+
+
   end
 end

@@ -6,7 +6,7 @@ class Admin::UsersController < Admin::BaseController
     @user = User.find(params[:id]) if params[:id]
   end
 
-  before_action :set_user, only: [
+  before_action :pre_load, only: [
     :show,
     :edit,
     :update,

@@ -2,6 +2,11 @@ Rails.application.routes.draw do
 
   root 'home#index'
 
+  devise_scope :user do 
+    get "/users" => "users#index" 
+    get "/users/:username" => 'users#show'
+  end
+
   namespace :admin do
     root "base#index"
     resources :users

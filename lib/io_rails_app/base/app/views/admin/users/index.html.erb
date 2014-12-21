@@ -30,8 +30,8 @@
                   <tr>
                     <td class="table-normal"><%= u.username %></td>
                     <td class="table-normal"><%= u.email %></td>
-                    <td class="table-normal"><%= u.created_at %></td>
-                    <td class="table-normal"><%= u.updated_at %></td>
+                    <td class="table-normal"><%= time_ago_in_words u.created_at %></td>
+                    <td class="table-normal"><%= time_ago_in_words u.updated_at %></td>
                     <td class="table-normal"><%= link_to "edit", "/admin/users/#{u.id}/edit" %></td>
                     <td class="table-normal"><%= link_to "delete", "/admin/users/#{u.id}", :method => :delete, data: { confirm: "Delete?"} %></td>
                   </tr>

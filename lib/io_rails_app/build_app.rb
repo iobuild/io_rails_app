@@ -162,6 +162,8 @@ class BuildApp
 
     add_user_decorators
 
+    add_user_page
+
     new_line
     wputs "----> devise installed.", :info
   end
