@@ -173,7 +173,7 @@ class BuildApp
                               ConfigValues.app_name.capitalize, 
                               @app_dir + "/config/application.rb")
 
-    add_test_user
+    add_test_admin_user
 
     add_user_decorator
 

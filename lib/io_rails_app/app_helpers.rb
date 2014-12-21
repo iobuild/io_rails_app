@@ -99,11 +99,22 @@ end
     end
 
 
-    def add_test_user
+    def add_test_admin_user
       Dir.chdir "#{ConfigValues.app_name}" do
         system "rails g migration AddAdminToUsers admin:boolean"
+      end
+
+      migration_file = Dir[@app_dir + "/db/migrate/*_add_admin_to_users.rb"].first
+      key_text = "add_column :users, :admin, :boolean"
+      new_text = "add_column :users, :admin, :boolean, :default => false"
+      FileHelpers.replace_string(key_text, new_text, migration_file)
+
+
+      Dir.chdir "#{ConfigValues.app_name}" do
         system "rake db:migrate"
       end
+
+
 
       test_user = <<-EOM
   u = User.new(
@@ -121,6 +132,8 @@ end
       Dir.chdir "#{ConfigValues.app_name}" do
         system "rake db:seed"
       end
+
+      
     end
 
 
