@@ -58,5 +58,45 @@ end
     end
 
 
+    def define_database_yml
+      origin_file = "#{ConfigValues.app_name}/config/database.yml"
+
+      mysql_config = <<-EOM
+
+# development:
+#   adapter: mysql2
+#   encoding: utf8
+#   database: hispanohora_development
+#   username: root
+#   password: root
+#   pool: 5
+#   timeout: 5000
+#   reconnect: true
+
+# test:
+#   adapter: mysql2
+#   encoding: utf8
+#   database: hispanohora_test
+#   username: root
+#   password: root
+#   pool: 5
+#   timeout: 5000
+  
+# production:
+#   adapter: mysql2
+#   encoding: utf8
+#   database: hispanohora_production
+#   username: root
+#   password: root
+#   pool: 5
+#   timeout: 5000
+#   reconnect: true
+
+      EOM
+
+      FileHelpers.add_to_file(origin_file, mysql_config)
+    end
+
+
   end
 end

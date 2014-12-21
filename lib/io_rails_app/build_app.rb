@@ -64,6 +64,8 @@ class BuildApp
     system "rails new #{ConfigValues.app_name} --skip-bundle"
 
     define_gemfile
+
+    define_database_yml
   end
 
 
