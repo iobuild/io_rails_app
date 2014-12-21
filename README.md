@@ -10,7 +10,7 @@ When you have an idea, you want to translate it quickly into a working app rathe
 * default home/user/admin page
 * multiple locales support include Spanish, Simple Chinese and English
 * bootstrap layout
-* mysql gem support
+* mysql/awesome_nested_set gem support
 
 
 ## Usage
