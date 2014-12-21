@@ -7,6 +7,7 @@ When you have an idea, you want to translate it quickly into a working app rathe
 
 * replaces the `rails new` command with `rails_c your_app_name`
 * default home page
+* multiple locales support include Spanish, Simple Chinese and English
 * devise user authentication with username
 * bootstrap layout
 * mysql gem support
