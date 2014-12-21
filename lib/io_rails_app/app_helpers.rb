@@ -33,6 +33,7 @@ module AppHelpers
       basic_gem = <<-EOM
 
 gem 'decorators', '~> 1.0.2'
+gem 'awesome_nested_set'
 # gem 'mysql2'
 gem "kaminari"
 gem 'devise'
@@ -170,6 +171,46 @@ end
       source_file = "#{@root_dir}/base/app/controllers/users_controller.rb"
       target_dir = "#{@app_dir}/app/controllers"
       FileHelpers.copy_file(source_file, target_dir)
+    end
+
+
+    def add_categories_migration
+      Dir.chdir "#{ConfigValues.app_name}" do
+        system "rails g migration CreateCategories"
+      end
+
+      migration_file = Dir[@app_dir + "/db/migrate/*_create_categories.rb"].first
+      File.open(migration_file, 'w') {|file| file.truncate(0) }
+
+      category_table = 
+<<-EOM
+
+class CreateCategories < ActiveRecord::Migration
+  def self.up
+    create_table :categories do |t|
+      t.string :name
+      t.integer :parent_id, :null => true, :index => true
+      t.integer :lft, :null => false, :index => true
+      t.integer :rgt, :null => false, :index => true
+
+      # optional fields
+      t.integer :depth, :null => false
+      t.integer :children_count, :null => false
+    end
+  end
+
+  def self.down
+    drop_table :categories
+  end
+end
+
+EOM
+
+      FileHelpers.add_to_file(migration_file, category_table)
+
+      Dir.chdir "#{ConfigValues.app_name}" do
+        system "rake db:migrate"
+      end
     end
 
 

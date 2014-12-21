@@ -26,6 +26,8 @@ module IoRailsApp
 
     build_app.bundle_install
 
+    build_app.install_awesome_nested_set
+
     build_app.install_layout
 
     build_app.install_home

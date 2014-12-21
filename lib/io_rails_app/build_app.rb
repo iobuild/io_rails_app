@@ -92,6 +92,30 @@ class BuildApp
   end
 
 
+  def install_awesome_nested_set
+    wputs "- Do you need install awesome_nested_set?"
+    wputs "1. No, not now (default)", :info
+    wputs "2. Do it! ", :info
+
+
+    return if answer() != '2'
+
+
+    new_line(2)
+    wputs "----> Installing awesome_nested_set  ...", :info
+
+    source_file = "#{@root_dir}/base/app/models/category.rb"
+    target_dir = "#{@app_dir}/app/models"
+    FileHelpers.copy_file(source_file, target_dir)
+
+    add_categories_migration
+
+
+    new_line
+    wputs "----> awesome_nested_set installed.", :info
+  end
+
+
   def install_home
     new_line(2)
     wputs "----> Installing home  ...", :info
