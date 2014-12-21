@@ -66,6 +66,8 @@ class BuildApp
     define_gemfile
 
     define_database_yml
+
+    define_application_config
   end
 
 
@@ -165,13 +167,6 @@ class BuildApp
   def install_admin
     new_line(2)
     wputs "----> Installing admin  ...", :info
-
-    source_file = "#{@root_dir}/base/config/application.rb"
-    target_dir = "#{@app_dir}/config/application.rb"
-    FileHelpers.override_file(source_file, target_dir)
-    FileHelpers.replace_string(/YourAppName/, 
-                              ConfigValues.app_name.capitalize, 
-                              @app_dir + "/config/application.rb")
 
     add_test_admin_user
 

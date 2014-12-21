@@ -99,6 +99,16 @@ end
     end
 
 
+    def define_application_config
+      source_file = "#{@root_dir}/base/config/application.rb"
+      target_dir = "#{@app_dir}/config/application.rb"
+      FileHelpers.override_file(source_file, target_dir)
+      FileHelpers.replace_string(/YourAppName/, 
+                                ConfigValues.app_name.capitalize, 
+                                @app_dir + "/config/application.rb")
+    end
+
+
     def add_test_admin_user
       Dir.chdir "#{ConfigValues.app_name}" do
         system "rails g migration AddAdminToUsers admin:boolean"
