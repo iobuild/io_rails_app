@@ -1,6 +1,7 @@
 <%= render '/admin/users/menu' %>
 
 
+
 <div class="row">
     <div class="col-md-12">
       <div class="panel panel-default">
@@ -9,7 +10,7 @@
         <div class="panel-body">
 
 
-<%= simple_form_for @user, :url => "/admin/users/#{@user.id}" do |f| %>
+<%= simple_form_for @user, :url => "/admin/users" do |f| %>
           
 
             <p>
@@ -54,3 +55,4 @@
 
   </div>
 </div>
+

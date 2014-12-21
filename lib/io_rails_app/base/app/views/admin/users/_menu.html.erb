@@ -1,0 +1,11 @@
+
+
+
+<ul class="nav nav-tabs mb-20" role="tablist">
+    <li <% if current_page?(:action => 'index') %> class="active" <% end %>>
+      <%= link_to "User List", "/admin/users", :method => :get %>
+    </li>
+    <li<% if current_page?(:action => 'new') %> class="active" <% end %>>
+      <%= link_to "New User", '/admin/users/new', :method => :get %>
+    </li>
+</ul>

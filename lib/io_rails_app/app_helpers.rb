@@ -154,7 +154,7 @@ end
     end
 
 
-    def add_decorators_dir
+    def add_user_decorators
       source_file = "#{@root_dir}/base/app/decorators"
       target_dir = "#{@app_dir}/app"
       FileHelpers.copy_dir(source_file, target_dir)

@@ -69,8 +69,6 @@ class BuildApp
 
     define_application_config
 
-    add_decorators_dir
-
     define_locale_files
   end
 
@@ -133,6 +131,10 @@ class BuildApp
     FileHelpers.copy_dir(source_file, target_dir)
     FileUtils.rm(target_dir + "/stylesheets/application.css")
 
+    source_file = "#{@root_dir}/base/app/assets/images"
+    target_dir = "#{@app_dir}/app/assets"
+    FileHelpers.copy_dir(source_file, target_dir)
+
 
     source_file = "#{@root_dir}/base/app/controllers/application_controller.rb"
     target_dir = "#{@app_dir}/app/controllers/application_controller.rb"
@@ -157,6 +159,8 @@ class BuildApp
     source_file = "#{@root_dir}/base/app/views/devise"
     target_dir = "#{@app_dir}/app/views"
     FileHelpers.copy_dir(source_file, target_dir)
+
+    add_user_decorators
 
     new_line
     wputs "----> devise installed.", :info
