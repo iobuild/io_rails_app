@@ -22,23 +22,6 @@
 
             <p><label>Password</label></p>
             <p> <%= f.password_field :password, :required => true, :class => "width-input", autocomplete: "off" %></p>
-
-        
-
-          <p><label>Residence</label></p>
-            <p><%= f.text_field :residence, :required => true, :class => "width-input", autocomplete: "off" %></p>
-
-
-          <p>
-            <label>Avatar</label>
-          </p>
-          <p>
-              <%= f.label :avatar do %>
-              <%= f.file_field :avatar, :required => true  %>
-              <%= f.hidden_field :avatar_cache %>
-            <% end %>
-          </p>
-
           
 
           <p style="margin-top: 30px;"><%= f.submit "Save" %></p>
