@@ -29,4 +29,7 @@ class ApplicationController < ActionController::Base
   end
 
 
+  io_require_admin
+
+
 end

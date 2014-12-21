@@ -6,13 +6,18 @@ require 'rails/all'
 # you've limited to :test, :development, or :production.
 Bundler.require(*Rails.groups)
 
-module Oncedoce
+module YourAppName
   class Application < Rails::Application
     # Settings in config/environments/* take precedence over those specified here.
     # Application configuration should go into files in config/initializers
     # -- all .rb files in that directory are automatically loaded.
 
     config.autoload_paths += Dir["#{config.root}/lib/**/"]
+
+    # Add decorators support
+    config.to_prepare do
+      Decorators.register! Rails.root
+    end
 
 
     # Set Time.zone default to the specified zone and make Active Record auto-convert to this zone.
@@ -25,7 +30,7 @@ module Oncedoce
 
     # config.time_zone = 'Beijing'
     # config.i18n.default_locale = 'zh-CN'
-    config.i18n.default_locale = 'en-US'
+    config.i18n.default_locale = 'en'
     # config.i18n.default_locale = 'es'
     config.encoding = 'utf-8'
 

@@ -31,6 +31,8 @@ module IoRailsApp
     build_app.install_home
 
     build_app.install_devise
+
+    build_app.install_admin
     
   end
 

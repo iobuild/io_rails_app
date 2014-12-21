@@ -155,12 +155,58 @@ class BuildApp
 
     source_file = "#{@root_dir}/base/app/views/devise"
     target_dir = "#{@app_dir}/app/views"
-    Dir.mkdir(File.join(target_dir, "devise"), 0700)
-    target_dir = "#{@app_dir}/app/views"
     FileHelpers.copy_dir(source_file, target_dir)
 
     new_line
     wputs "----> devise installed.", :info
+  end
+
+
+  def install_admin
+    new_line(2)
+    wputs "----> Installing admin  ...", :info
+
+    source_file = "#{@root_dir}/base/config/application.rb"
+    target_dir = "#{@app_dir}/config/application.rb"
+    FileHelpers.override_file(source_file, target_dir)
+    FileHelpers.replace_string(/YourAppName/, 
+                              ConfigValues.app_name.capitalize, 
+                              @app_dir + "/config/application.rb")
+
+    add_test_user
+
+    add_user_decorator
+
+
+    # admin controllers
+    source_file = "#{@root_dir}/base/app/controllers/admin"
+    target_dir = "#{@app_dir}/app/controllers"
+    FileHelpers.copy_dir(source_file, target_dir)
+
+    method_text = <<-EOM
+    # Only permits admin users
+    def require_admin!
+      authenticate_user!
+      
+      if current_user && !current_user.admin?
+        redirect_to root_path
+      end
+    end
+    helper_method :require_admin!
+    EOM
+
+    FileHelpers.replace_string(/io_require_admin/, 
+                              method_text, 
+                              @app_dir + "/app/controllers/application_controller.rb")
+
+
+    # admin views
+    source_file = "#{@root_dir}/base/app/views/admin"
+    target_dir = "#{@app_dir}/app/views"
+    FileHelpers.copy_dir(source_file, target_dir)
+
+    new_line
+    wputs "----> admin installed.", :info
   end
 
 

@@ -32,6 +32,7 @@ module AppHelpers
 
       basic_gem = <<-EOM
 
+gem 'decorators', '~> 1.0.2'
 # gem 'mysql2'
 gem "kaminari"
 gem 'devise'
@@ -95,6 +96,38 @@ end
       EOM
 
       FileHelpers.add_to_file(origin_file, mysql_config)
+    end
+
+
+    def add_test_user
+      Dir.chdir "#{ConfigValues.app_name}" do
+        system "rails g migration AddAdminToUsers admin:boolean"
+        system "rake db:migrate"
+      end
+
+      test_user = <<-EOM
+  u = User.new(
+      email: "admin@example.com",
+      username: 'Iamadmin',
+      password: "11111111",
+      password_confirmation: "11111111",
+      admin: true
+  )
+  u.save!
+      EOM
+
+      FileHelpers.add_to_file(@app_dir + "/db/seeds.rb", test_user)
+
+      Dir.chdir "#{ConfigValues.app_name}" do
+        system "rake db:seed"
+      end
+    end
+
+
+    def add_user_decorator
+      source_file = "#{@root_dir}/base/app/decorators"
+      target_dir = "#{@app_dir}/app"
+      FileHelpers.copy_dir(source_file, target_dir)
     end
 
 
