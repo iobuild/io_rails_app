@@ -147,6 +147,7 @@ class BuildApp
     Dir.chdir "#{ConfigValues.app_name}" do
       system "rails generate devise:install"
       system "rails generate devise User"
+      system "rails g migration AddUsernameToUsers username:string"
       system "rake db:migrate"
     end
 
