@@ -68,6 +68,10 @@ class BuildApp
     define_database_yml
 
     define_application_config
+
+    add_decorators_dir
+
+    define_locale_files
   end
 
 
@@ -135,11 +139,6 @@ class BuildApp
     FileHelpers.override_file(source_file, target_dir)
 
 
-    source_file = "#{@root_dir}/base/config/locales"
-    target_dir = "#{@app_dir}/config"
-    FileHelpers.copy_dir(source_file, target_dir)
-
-
     new_line
     wputs "----> layout installed.", :info
   end
@@ -169,8 +168,6 @@ class BuildApp
     wputs "----> Installing admin  ...", :info
 
     add_test_admin_user
-
-    add_user_decorator
 
 
     # admin controllers

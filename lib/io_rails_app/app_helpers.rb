@@ -109,6 +109,13 @@ end
     end
 
 
+    def define_locale_files
+      source_file = "#{@root_dir}/base/config/locales"
+      target_dir = "#{@app_dir}/config"
+      FileHelpers.copy_dir(source_file, target_dir)
+    end
+
+
     def add_test_admin_user
       Dir.chdir "#{ConfigValues.app_name}" do
         system "rails g migration AddAdminToUsers admin:boolean"
@@ -147,7 +154,7 @@ end
     end
 
 
-    def add_user_decorator
+    def add_decorators_dir
       source_file = "#{@root_dir}/base/app/decorators"
       target_dir = "#{@app_dir}/app"
       FileHelpers.copy_dir(source_file, target_dir)
