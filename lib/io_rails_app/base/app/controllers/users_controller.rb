@@ -16,7 +16,7 @@ class UsersController < Devise::RegistrationsController
 
   protected
     def find_user
-      @user = User.where(username: params[:username].downcase).first
+      @user = User.where("lower(username) = ?", params[:username].downcase).first
 
       render_404 if @user.nil?
     end
