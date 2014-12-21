@@ -6,9 +6,9 @@ When you have an idea, you want to translate it quickly into a working app rathe
 ## Features
 
 * decorators pattern support
-* default home page
-* multiple locales support include Spanish, Simple Chinese and English
 * devise user authentication with username
+* default home/user/admin page
+* multiple locales support include Spanish, Simple Chinese and English
 * bootstrap layout
 * mysql gem support
 
