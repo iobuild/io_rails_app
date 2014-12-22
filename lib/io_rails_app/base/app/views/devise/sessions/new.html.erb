@@ -1,12 +1,4 @@
-
-
-
-<div class="panel panel-default">
-
-    <div class="panel-heading"><strong><%= t('login') %></strong></div>
-
-    <div class="panel-body">
-
+ &gt <%= render "devise/shared/links" %>
 
         <%= simple_form_for(resource, as: resource_name, url: session_path(resource_name), :html => {:class => 'form-signin'}) do |f| %>
 
@@ -25,16 +17,9 @@
 
 
 
-        <%= render "devise/shared/links" %>
+        
 
-
-    </div>
-
-
-
-
-</div>
-
+ 
 
 
 
