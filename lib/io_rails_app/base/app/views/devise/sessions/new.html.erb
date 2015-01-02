@@ -1,25 +1,80 @@
- &gt <%= render "devise/shared/links" %>
-
-        <%= simple_form_for(resource, as: resource_name, url: session_path(resource_name), :html => {:class => 'form-signin'}) do |f| %>
-
-
-
-        <input type="email" id="inputEmail" name="user[email]" class="form-control" placeholder="Email address" required autofocus>
-
-        <input type="password" id="inputPassword" name="user[password]" class="form-control" placeholder="Password" required>
-        <div class="checkbox">
-          <label>
-            <input type="checkbox" value="1", name="user[remember_me]"> Remember me
-          </label>
-        </div>
-        <input type="submit" value="<%= t('login') %>" name="commit" class="btn btn-lg btn-primary btn-block">
-        <% end %>
-
 
 
         
 
- 
 
+    <div class="container-fluid">
+      <div class="row">
+        <div class="col-md-4">
+          <%= simple_form_for(resource, as: resource_name, url: session_path(resource_name), :html => {:class => 'form-signin'}) do |f| %>
+               
+              
+            <div class="form-group">
+              
+              <label class="control-label" for="email">
+                <span>
+                  Email
+                </span>
+              </label>
+              
+              <div class="controls">
+                <input type="email" id="inputEmail" name="user[email]" class="form-control" placeholder="Email address" required autofocus>
+              </div>
+            </div>
+            
+            <div class="form-group">
+              
+              <label class="control-label" for="password">
+                <span>
+                  Password
+                </span>
+              </label>
+              
+              <div class="controls">
+                <input type="password" id="inputPassword" name="user[password]" class="form-control" placeholder="Password" required>
+              </div>
+            </div>
+            
+
+            <div>
+              <input type="submit" value="<%= t('login') %>" name="commit" class="btn btn-lg btn-primary">
+              <small class="pull-right" style="line-height:44px;">
+                <%= link_to "Forgot your password?", new_password_path(resource_name) %>
+              </small>
+            </div>
+
+          <% end %>
+
+          <!-- <hr style="margin: 30px 0" />
+
+          <div>
+            <p>
+              <a class="btn btn-default" href="/user/login/github">
+                <img src="/assets/github.png" />
+                Login with github
+              </a>
+            </p>
+          </div> -->
+
+        </div>
+
+
+        <div class="col-md-4 col-md-offset-2">
+          <h5>
+            Don't have an account?
+          </h5>
+          <p>
+            <a href="/users/sign_up" class="btn btn-success">
+              Sign up!
+            </a>
+          </p>
+        </div>
+
+      </div>
+
+      
+
+    </div>
+ 
 
 

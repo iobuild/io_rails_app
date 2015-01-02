@@ -11,6 +11,7 @@ When you have an idea, you want to translate it quickly into a working app rathe
 * multiple locales support include Spanish, Simple Chinese and English
 * bootstrap layout
 * mysql/awesome_nested_set gem support
+* add mobile theme compatible support
 
 
 ## Usage
