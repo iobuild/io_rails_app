@@ -18,6 +18,12 @@ When you have an idea, you want to translate it quickly into a working app rathe
 
 To create a new app, just type `rails_c your_app_name` and follow the wizard.
 
+
+## Admin Login
+
+* email: admin@example.com
+* password: 11111111
+
     
 ## Contribute
 

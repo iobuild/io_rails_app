@@ -191,10 +191,10 @@ class BuildApp
     target_dir = "#{@app_dir}/app/assets/stylesheets"
     FileHelpers.copy_file(source_file, target_dir)
 
-    source_file = "#{@root_dir}/base/app/assets/stylesheets/custom_as_simple.css.scss"
+    source_file = "#{@root_dir}/base/app/assets/stylesheets/custom_as_default.css.scss"
     target_dir = "#{@app_dir}/app/assets/stylesheets"
     FileHelpers.copy_file(source_file, target_dir)
-    FileUtils.rm(target_dir + "/stylesheets/application.css")
+    FileUtils.rm(target_dir + "/application.css")
 
     source_file = "#{@root_dir}/base/app/assets/images"
     target_dir = "#{@app_dir}/app/assets"
@@ -213,7 +213,7 @@ class BuildApp
 
   def install_layout
     wputs "- Please select layout style?"
-    wputs "1. default", :info
+    wputs "1. default bootstrap3", :info
     wputs "2. simple which compatible with mobile", :info
 
 
