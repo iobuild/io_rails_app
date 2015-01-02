@@ -1,5 +1,7 @@
 class Admin::BaseController < ApplicationController
   before_filter :require_admin!
+
+  layout 'default'
   
   def index
     @last_signups = User.last_signups(10)

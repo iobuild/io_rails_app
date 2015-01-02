@@ -145,33 +145,17 @@ class BuildApp
     new_line(2)
     wputs "----> Installing simple layout  ...", :info
 
-    source_file = "#{@root_dir}/base/app/views/layouts/simple.html.erb"
-    target_dir = "#{@app_dir}/app/views/layouts"
-    FileHelpers.copy_file(source_file, target_dir)
-
-
-    source_file = "#{@root_dir}/base/app/assets/stylesheets/application.css.scss"
-    target_dir = "#{@app_dir}/app/assets/stylesheets"
-    FileHelpers.copy_file(source_file, target_dir)
-
-    source_file = "#{@root_dir}/base/app/assets/stylesheets/custom_as_simple.css.scss"
-    target_dir = "#{@app_dir}/app/assets/stylesheets"
-    FileHelpers.copy_file(source_file, target_dir)
-
-    FileUtils.rm(target_dir + "/application.css")
-
-    source_file = "#{@root_dir}/base/app/assets/images"
-    target_dir = "#{@app_dir}/app/assets"
-    FileHelpers.copy_dir(source_file, target_dir)
-
-
-    source_file = "#{@root_dir}/base/app/controllers/application_controller.rb"
-    target_dir = "#{@app_dir}/app/controllers/application_controller.rb"
-    FileHelpers.override_file(source_file, target_dir)
 
     FileHelpers.replace_string(/'default'/, 
                               '\'simple\'', 
                               @app_dir + "/app/controllers/application_controller.rb")
+
+    target_file = @app_dir + "/config/initializers/assets.rb"
+    text = 'Rails.application.config.assets.precompile += %w( custom_as_simple.css )'
+    FileHelpers.add_to_file(target_file, text)
+
+    text = 'Rails.application.config.assets.precompile += %w( custom_as_default.css )'
+    FileHelpers.add_to_file(target_file, text)
 
 
     new_line
@@ -182,29 +166,10 @@ class BuildApp
     new_line(2)
     wputs "----> Installing default layout  ...", :info
 
-    source_file = "#{@root_dir}/base/app/views/layouts/default.html.erb"
-    target_dir = "#{@app_dir}/app/views/layouts"
-    FileHelpers.copy_file(source_file, target_dir)
-
-
-    source_file = "#{@root_dir}/base/app/assets/stylesheets/application.css.scss"
-    target_dir = "#{@app_dir}/app/assets/stylesheets"
-    FileHelpers.copy_file(source_file, target_dir)
-
-    source_file = "#{@root_dir}/base/app/assets/stylesheets/custom_as_default.css.scss"
-    target_dir = "#{@app_dir}/app/assets/stylesheets"
-    FileHelpers.copy_file(source_file, target_dir)
-    FileUtils.rm(target_dir + "/application.css")
-
-    source_file = "#{@root_dir}/base/app/assets/images"
-    target_dir = "#{@app_dir}/app/assets"
-    FileHelpers.copy_dir(source_file, target_dir)
-
-
-    source_file = "#{@root_dir}/base/app/controllers/application_controller.rb"
-    target_dir = "#{@app_dir}/app/controllers/application_controller.rb"
-    FileHelpers.override_file(source_file, target_dir)
-
+    
+    target_file = @app_dir + "/config/initializers/assets.rb"
+    text = 'Rails.application.config.assets.precompile += %w( custom_as_default.css )'
+    FileHelpers.add_to_file(target_file, text)
 
     new_line
     wputs "----> layout installed.", :info
@@ -217,6 +182,33 @@ class BuildApp
     wputs "2. simple which compatible with mobile", :info
 
 
+
+    source_file = "#{@root_dir}/base/app/helpers"
+    target_dir = "#{@app_dir}/app"
+    FileHelpers.copy_dir(source_file, target_dir)
+
+
+    source_file = "#{@root_dir}/base/app/views/layouts"
+    target_dir = "#{@app_dir}/app/views"
+    FileHelpers.copy_dir(source_file, target_dir)
+
+
+    source_file = "#{@root_dir}/base/app/assets/stylesheets"
+    target_dir = "#{@app_dir}/app/assets"
+    FileHelpers.copy_dir(source_file, target_dir)
+    FileUtils.rm(target_dir + "/stylesheets/application.css")
+
+
+    source_file = "#{@root_dir}/base/app/assets/images"
+    target_dir = "#{@app_dir}/app/assets"
+    FileHelpers.copy_dir(source_file, target_dir)
+
+
+    source_file = "#{@root_dir}/base/app/controllers/application_controller.rb"
+    target_dir = "#{@app_dir}/app/controllers/application_controller.rb"
+    FileHelpers.override_file(source_file, target_dir)
+
+
     case answer()
     when '1'
       install_default_layout
@@ -224,9 +216,8 @@ class BuildApp
       install_simple_layout
     end
 
-    source_file = "#{@root_dir}/base/app/helpers"
-    target_dir = "#{@app_dir}/app"
-    FileHelpers.copy_dir(source_file, target_dir)
+
+
 
     
   end
