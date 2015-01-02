@@ -214,6 +214,8 @@ class BuildApp
       install_default_layout
     when '2'
       install_simple_layout
+    else
+      install_default_layout
     end
 
 
