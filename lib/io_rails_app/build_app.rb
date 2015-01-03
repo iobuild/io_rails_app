@@ -193,15 +193,10 @@ class BuildApp
     FileHelpers.copy_dir(source_file, target_dir)
 
 
-    source_file = "#{@root_dir}/base/app/assets/stylesheets"
-    target_dir = "#{@app_dir}/app/assets"
+    source_file = "#{@root_dir}/base/app/assets"
+    target_dir = "#{@app_dir}/app"
     FileHelpers.copy_dir(source_file, target_dir)
-    FileUtils.rm(target_dir + "/stylesheets/application.css")
-
-
-    source_file = "#{@root_dir}/base/app/assets/images"
-    target_dir = "#{@app_dir}/app/assets"
-    FileHelpers.copy_dir(source_file, target_dir)
+    FileUtils.rm(target_dir + "/assets/stylesheets/application.css")
 
 
     source_file = "#{@root_dir}/base/app/controllers/application_controller.rb"
