@@ -45,6 +45,7 @@ gem 'autoprefixer-rails'
 gem 'font-awesome-sass'
 
 gem 'social-share-button'
+gem 'jquery-ui-rails'
 
 
 group :development, :test do
