@@ -29,66 +29,72 @@
 
 <body>
 
-  <div id="nav">
+  <div class="wrapper">
+
+
+    <div id="nav">
+      <div class="container-fluid">
+        <div class="masthead">
+          <ul class="nav nav-pills pull-right">
+
+            <li class="">
+                <a href="/">Home</a>
+            </li>
+        
+            <li class="<%= show_nav_active('devise/sessions', 'new') %>">
+              <% if user_signed_in? %>
+                <%= link_to t('logout'), '/users/sign_out', :method => :delete %>
+              <% else %>
+                <a href="/users/sign_in">Sign in</a>
+              <% end %>
+                
+            </li>
+
+          </ul>
+          <h3 class="wordmark text-muted"><a href="/">YouApp</a></h3>
+        </div>
+        </div>
+    </div>
+
+    <% if user_signed_in? %>
+      <div class="container-fluid">
+        <div class="row">
+          <div class="col-md-7">
+          </div>
+
+          <div class="col-md-5">
+            <span class="text-muted pull-right"><%= current_user.username %></span>
+          </div>
+        </div>
+      </div>
+    <% end %>
+
     <div class="container-fluid">
-      <div class="masthead">
-        <ul class="nav nav-pills pull-right">
+      <hr style="margin-top: 20px;" />
+    </div>
 
-          <li class="">
-              <a href="/">Home</a>
-          </li>
+
+
+
+    <%= yield %>
+
+
       
-          <li class="<%= show_nav_active('devise/sessions', 'new') %>">
-            <% if user_signed_in? %>
-              <%= link_to t('logout'), '/users/sign_out', :method => :delete %>
-            <% else %>
-              <a href="/users/sign_in">Sign in</a>
-            <% end %>
-              
-          </li>
+    <div class="container-fluid"><hr /></div>
 
-        </ul>
-        <h3 class="wordmark text-muted"><a href="/">YouApp</a></h3>
-      </div>
-      </div>
-  </div>
-
-  <% if user_signed_in? %>
     <div class="container-fluid">
       <div class="row">
-        <div class="col-md-7">
-        </div>
-
         <div class="col-md-5">
-          <span class="text-muted pull-right"><%= current_user.username %></span>
+          &copy; <a href="">YourApp</a> 2015
+          <span class="pull-right">
+                      
+          </span>
         </div>
       </div>
     </div>
-  <% end %>
 
-  <div class="container-fluid">
-    <hr style="margin-top: 20px;" />
+
+
   </div>
-
-
-
-
-  <%= yield %>
-
-
-    
-  <div class="container-fluid"><hr /></div>
-    <div id="footer">
-      <div class="container-fluid">
-          <div class="row">
-              &copy; <a href="">YouApp</a> 2015
-              <span class="pull-right">
-                          
-              </span>
-          </div>
-    </div>
-  </div>
-
-
 </body>
 </html>
