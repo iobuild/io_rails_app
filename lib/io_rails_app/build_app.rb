@@ -86,9 +86,23 @@ class BuildApp
     wputs "----> Installing gems  ...", :info
     Dir.chdir "#{ConfigValues.app_name}" do
       system "bundle install"
+      system "rails generate simple_form:install --bootstrap"
     end
     new_line
     wputs "----> Gems installed.", :info
+  end
+
+
+  def install_simple_form
+    new_line(2)
+    wputs "----> Installing simple_form  ...", :info
+    Dir.chdir "#{ConfigValues.app_name}" do
+      system "rails generate simple_form:install --bootstrap"
+    end
+
+    FileUtils.rm(ConfigValues.app_name + "/config/initializers/simple_form.rb")
+    new_line
+    wputs "----> simple_form installed.", :info
   end
 
 
