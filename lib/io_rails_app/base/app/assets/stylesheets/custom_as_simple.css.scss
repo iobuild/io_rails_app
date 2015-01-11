@@ -32,6 +32,91 @@ h1, h2, h3 {
 
 
 
+
+
+
+
+.navbar.navbar-inverse {
+    background-color: white;
+    border-color: #fff;
+}
+
+/* Navbar title */
+
+.navbar-inverse .navbar-brand {
+    color: lightgray;
+}
+
+/* Focus/hover state for navbar title */
+
+.navbar-inverse .navbar-brand:hover,
+.navbar-inverse .navbar-brand:focus {
+    color: #2e6da4;
+}
+
+/* Navbar links default color */
+
+.navbar-inverse .navbar-nav > li > a {
+    color: black;
+}
+
+/* Navbar links hover/focus states */
+
+.navbar-inverse .navbar-nav > li > a:hover,
+.navbar-inverse .navbar-nav > li > a:focus {
+    color: #2e6da4;
+}
+
+/* Active link colors */
+
+.navbar-inverse .navbar-nav > .active > a, 
+.navbar-inverse .navbar-nav > .active > a:hover, 
+.navbar-inverse .navbar-nav > .active > a:focus {
+    color: black;
+    background-color: white;
+}
+
+
+/* Mobile toggle button */
+
+.navbar-inverse .navbar-toggle {
+    border-color: #2e6da4;
+}
+
+/* Mobile toggle button hover/focus states */
+
+.navbar-inverse .navbar-toggle:hover,
+.navbar-inverse .navbar-toggle:focus {
+    background-color: #DDD;
+}
+
+/* Mobile icon bar colors */
+
+.navbar-inverse .navbar-toggle .icon-bar {
+    background-color: #CCC;
+}
+
+
+
+.navbar-inverse .navbar-nav > .open > a, .navbar-inverse .navbar-nav > .open > a:hover, .navbar-inverse .navbar-nav > .open > a:focus {
+    background-color: #2e6da4;
+    color: white;
+}
+
+
+
+.navbar-inverse .navbar-nav .open .dropdown-menu > li > a, .navbar-inverse .navbar-nav .open .dropdown-menu > li > a:hover {
+    color: #2e6da4;
+}
+
+.collapse.in {
+  background-color: lightgray;
+}
+
+
+
+
+
 /*flash*/
 .alert-error {
     background-color: #f2dede;

@@ -9,7 +9,7 @@
     <meta name="keywords" content="<%= @keywords if @keywords %>" />
     <meta name="title" content="<%= @title if @title %>" />
 
-    <title>YouApp <%= ' - ' + @title if @title %></title>
+    <title>YourApp <%= ' - ' + @title if @title %></title>
 
     <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
     <%= stylesheet_link_tag    'custom_as_simple', media: 'all', 'data-turbolinks-track' => true %>
@@ -32,52 +32,71 @@
   <div class="wrapper">
 
 
-    <div id="nav">
+    <nav class="navbar navbar-inverse navbar-fixed-top">
       <div class="container-fluid">
-        <div class="masthead">
-          <ul class="nav nav-pills pull-right">
-
-            <li class="">
-                <a href="/">Home</a>
+        <div class="navbar-header">
+          <button aria-controls="navbar" aria-expanded="true" data-target="#navbar" data-toggle="collapse" class="navbar-toggle" type="button">
+            <span class="sr-only">Toggle navigation</span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+          </button>
+          <a href="#" class="navbar-brand">YourApp</a>
+        </div>
+        <div class="navbar-collapse collapse" id="navbar" aria-expanded="true" style="">
+          <ul class="nav navbar-nav">
+            <li>
+                <a href="/admin">admin</a>
             </li>
-        
-            <li class="<%= show_nav_active('devise/sessions', 'new') %>">
-              <% if user_signed_in? %>
-                <%= link_to t('logout'), '/users/sign_out', :method => :delete %>
-              <% else %>
-                <a href="/users/sign_in">Sign in</a>
-              <% end %>
+          </ul>
+
+
+          <ul class="nav navbar-nav navbar-right">
+            <% if user_signed_in? %>
+            <li class="<%= show_nav_active('devise/sessions', 'new') %> dropdown">            
+
+              <a data-toggle="dropdown" class="dropdown-toggle" href="#">
+                <%= current_user.username %> 
+                <span class="caret"></span>
+              </a>
+              <ul class="dropdown-menu">
+                <li><%= link_to t('logout'), '/users/sign_out', :method => :delete %></li>
+              </ul>
                 
             </li>
+            <% else %>
+            <li>            
+              <a href="/users/sign_in">Sign in</a>
+            </li>
+            <% end %>
 
           </ul>
-          <h3 class="wordmark text-muted"><a href="/">YouApp</a></h3>
-        </div>
-        </div>
-    </div>
-
-    <% if user_signed_in? %>
-      <div class="container-fluid">
-        <div class="row">
-          <div class="col-md-7">
-          </div>
-
-          <div class="col-md-5">
-            <span class="text-muted pull-right"><%= current_user.username %></span>
-          </div>
-        </div>
+        </div><!--/.nav-collapse -->
       </div>
-    <% end %>
+    </nav>
+
+
+
+
+
+
+
+
+
 
     <div class="container-fluid">
-      <hr style="margin-top: 20px;" />
+      <hr />
     </div>
 
 
 
     <%= render 'layouts/messages' %>
 
-    <%= yield %>
+    <div class="container" style="min-height: 360px; margin-bottom: 20px;">
+
+      <%= yield %>
+
+    </div>
 
 
       
