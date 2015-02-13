@@ -31,90 +31,109 @@
 
   <div class="wrapper">
 
-
-    <nav class="navbar navbar-inverse navbar-fixed-top">
+    <nav class="navbar navbar-default">
       <div class="container-fluid">
+        <!-- Brand and toggle get grouped for better mobile display -->
         <div class="navbar-header">
-          <button aria-controls="navbar" aria-expanded="true" data-target="#navbar" data-toggle="collapse" class="navbar-toggle" type="button">
+          <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
             <span class="sr-only">Toggle navigation</span>
             <span class="icon-bar"></span>
             <span class="icon-bar"></span>
             <span class="icon-bar"></span>
           </button>
-          <a href="#" class="navbar-brand">YourApp</a>
+          <a class="navbar-brand" href="/">YourApp</a>
         </div>
-        <div class="navbar-collapse collapse" id="navbar" aria-expanded="true" style="">
+
+        <!-- Collect the nav links, forms, and other content for toggling -->
+        <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
           <ul class="nav navbar-nav">
             <li>
-                <a href="/admin">admin</a>
+                <a href="/">Home</a>
             </li>
+
           </ul>
-
-
+          <form class="navbar-form navbar-left" role="search">
+            <div class="form-group">
+              <input type="text" class="form-control" placeholder="Search">
+            </div>
+            <button type="submit" class="btn btn-default">Submit</button>
+          </form>
           <ul class="nav navbar-nav navbar-right">
             <% if user_signed_in? %>
-            <li class="<%= show_nav_active('devise/sessions', 'new') %> dropdown">            
-
-              <a data-toggle="dropdown" class="dropdown-toggle" href="#">
-                <%= current_user.username %> 
-                <span class="caret"></span>
-              </a>
-              <ul class="dropdown-menu">
+            <li class="dropdown">
+              <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false"><%= current_user.username %> <span class="caret"></span></a>
+              <ul class="dropdown-menu" role="menu">
                 <li><%= link_to t('logout'), '/users/sign_out', :method => :delete %></li>
               </ul>
-                
             </li>
+
             <% else %>
-            <li>            
-              <a href="/users/sign_in">Sign in</a>
-            </li>
+              <li>
+                <a href="/users/sign_in" title="<%= t('login') %>"><%= t('login') %></a>
+              </li>
+              <li>
+                <a href="/users/sign_up" title="<%= t('register') %>"><%= t('register') %></a>
+              </li>
             <% end %>
 
+            <!-- <li><a href="#">Link</a></li>
+            <li class="dropdown">
+              <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">Dropdown <span class="caret"></span></a>
+              <ul class="dropdown-menu" role="menu">
+                <li><a href="#">Action</a></li>
+                <li><a href="#">Another action</a></li>
+                <li><a href="#">Something else here</a></li>
+                <li class="divider"></li>
+                <li><a href="#">Separated link</a></li>
+              </ul>
+            </li> -->
           </ul>
-        </div><!--/.nav-collapse -->
-      </div>
+        </div><!-- /.navbar-collapse -->
+      </div><!-- /.container-fluid -->
     </nav>
 
 
 
 
-
-
-
-
-
-
-    <div class="container-fluid">
-      <hr />
-    </div>
-
-
-
     <%= render 'layouts/messages' %>
 
-    <div class="container" style="min-height: 360px; margin-bottom: 20px;">
 
-      <%= yield %>
+
+    <!-- Page Content -->
+    <div class="container-fluid" style="min-height: 360px; margin-bottom: 20px;">
+
+        <%= yield %>
 
     </div>
+    <!-- /.container -->
 
-
-      
-    <div class="container-fluid"><hr /></div>
 
     <div class="container-fluid">
-      <div class="row">
-        <div class="col-md-5">
-          &copy; <a href="">YourApp</a> 2015
-          <span class="pull-right">
-                      
-          </span>
-        </div>
-      </div>
-    </div>
+        <!-- Footer -->
+        <footer>
+            <div class="row well">
+                <div class="col-lg-12">
+                    <p>
+                      <span>Copyright &copy; 2014</span>
+                      <span class="pull-right">
+                        <a href="" class="mr-10"></a>
+                        <a href=""></a>
+                      </span>
+                    </p>
+                </div>
+                <!-- /.col-lg-12 -->
+            </div>
+            <!-- /.row -->
+        </footer>
 
+    </div>
+    <!-- /.container -->
 
 
   </div>
+
+
+
+  
 </body>
 </html>
